@@ -1,0 +1,15 @@
+<apex:page controller="fileUploaderController">
+    <apex:sectionHeader title="Upload Multiple Attachments"/>
+    <apex:pageMessages />
+    <apex:form >
+     <apex:pageBlock >
+       <apex:pageBlockButtons location="Top">
+         <apex:commandButton action="{!addInteger}" value="Upload another File"/>
+         <apex:commandButton action="{!cancel}" value="Go back!"/>  
+       </apex:pageBlockButtons>
+     </apex:pageBlock>         
+    </apex:form>
+    <apex:repeat value="{!listInteger}" var="i">
+        <c:fileUploader parentId="{!parentId}"/>
+    </apex:repeat>    
+</apex:page>
