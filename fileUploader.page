@@ -1,0 +1,24 @@
+<apex:component controller="fileUploaderComponentController" allowDML="true">
+    <apex:attribute name="parentId" assignTo="{!file.parentId}" type="Id" description="Parent Record Id"/>
+    
+    <apex:form >    
+      <apex:pageBlock mode="edit">
+        <apex:pageBlockSection >
+          <apex:pageBlockSectionItem rendered="{!file.Id==null}">
+            <apex:outputLabel value="File"></apex:outputLabel>
+            <apex:inputFile value="{!file.body}" fileName="{!file.name}"></apex:inputFile>
+          </apex:pageBlockSectionItem>
+            
+          <apex:pageBlockSectionItem rendered="{!file.Id==null}">
+             <apex:commandButton value="Upload" action="{!upload}"/>  
+          </apex:pageBlockSectionItem>
+            
+          <apex:pageBlockSectionItem rendered="{!file.ID!=null}">
+            <apex:outputLabel value="you just uploaded"></apex:outputLabel>
+            <apex:outputText value="{!file.Name}"></apex:outputText>
+          </apex:pageBlockSectionItem>  
+        </apex:pageBlockSection>  
+      </apex:pageBlock>
+      <apex:pageMessages ></apex:pageMessages>  
+    </apex:form>
+</apex:component>
